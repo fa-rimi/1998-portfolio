@@ -1,0 +1,43 @@
+html, body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+}
+
+body {
+    background-color: #F0E5CF;
+}
+
+/* start of static scrollbar */
+.right-scrollbar {
+    width: 15px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+
+    background-color: #9F9E9E;
+}
+/* end of static scrollbar */
+
+/* start of custom scrollable bar */
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #9F9E9E; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  /* end of custom scrollable bar */
