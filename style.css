@@ -5,39 +5,182 @@ html, body {
     margin: 0 auto;
 }
 
+html {
+  --bg: #c0c0c0;
+  --title-bar-color-1: blue;
+  --title-bar-color-2: lightblue;
+
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+
+  --window-outer-border: inset -1px -1px var(--window-frame),
+  inset 1px 1px var(--button-face);
+    /* Window borders flip button-face and button-highlight */
+  --border-window-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-highlight);
+    --border-raised-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-face);
+}
+
 body {
     background-color: #F0E5CF;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+  height: 100%;
 }
 
 /* start of static scrollbar */
 .right-scrollbar {
-    width: 15px;
-    height: 100%;
-    position: fixed;
-    right: 0;
+  width: 15px;
+  height: 100%;
+  position: fixed;
+  right: 0;
 
-    background-color: #9F9E9E;
+  background-color: #9F9E9E;
 }
 /* end of static scrollbar */
 
 /* start of custom scrollable bar */
 /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 20px;
-  }
+  } */
   
   /* Track */
-  ::-webkit-scrollbar-track {
+  /* ::-webkit-scrollbar-track {
     background: #9F9E9E; 
-  }
+  } */
    
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  /* ::-webkit-scrollbar-thumb {
     background: #888; 
-  }
+  } */
   
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+  /* ::-webkit-scrollbar-thumb:hover {
     background: #555; 
-  }
+  } */
   /* end of custom scrollable bar */
+
+.popup {
+  height: 207px;
+  width: 480px;
+
+  background: var(--bg);
+}
+
+.window {
+  height: 200px;
+  width: 475px;
+  box-shadow: var(--window-outer-border), var(--border-window-inner);
+  padding: 3px;
+}
+  
+.title-bar {
+  background: linear-gradient(
+    90deg,
+    var(--title-bar-color-1),
+    var(--title-bar-color-2)
+  );
+
+  padding: 2px 2px 2px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+  .title-bar.inactive {
+    background: linear-gradient(
+      90deg,
+      var(--dialog-gray),
+      var(--dialog-gray-light)
+    );
+  }
+  
+  .title-bar-text {
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0;
+    margin-right: 24px;
+  }
+  
+  .title-bar-controls {
+    display: flex;
+  }
+  
+  .title-bar-controls button {
+    padding: 0;
+    margin-bottom: .5px;
+    display: block;
+    min-width: 17px;
+    min-height: 17px;
+  }
+  
+  .title-bar-controls button:active {
+    padding: 0;
+  }
+  
+  .title-bar-controls button:focus {
+    outline: none;
+  }
+  
+  .title-bar-controls button[aria-label="Question"] {
+    background-image: url(icons/icons8-question-mark-30.png);
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: -.5px;
+  }
+  
+  .title-bar-controls button[aria-label="Close"] {
+    margin-left: 2px;
+    background-image: url(icons/icons8-x-24.png);
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .status-bar {
+    margin: 0px 1px;
+    display: flex;
+    gap: 1px;
+  }
+  
+  .status-bar-field {
+    box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080;
+    flex-grow: 1;
+    padding: 2px 3px;
+    margin: 0;
+  }
+  
+  .window-body {
+    height: 150px;
+    margin: var(--element-spacing);
+    padding: 0 0 0 10px;
+
+    text-align: center;
+  }
+  
+  button .submit{
+  box-sizing: border-box;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 var(--text-color);
+  background: var(--bg);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+
+  min-width: 75px;
+  min-height: 23px;
+  padding: 0 12px;
+}
