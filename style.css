@@ -27,7 +27,7 @@ html {
 }
 
 body {
-    background-color: #F0E5CF;
+    background-color: lightcyan;
 
     display: flex;
     flex-direction: column;
