@@ -50,7 +50,7 @@ main {
 }
 /* end of static scrollbar */
 
-/* start of custom scrollable bar */
+/* start of custom scrollable bar
 ::-webkit-scrollbar {
   width: 16px;
 }
@@ -93,8 +93,11 @@ main {
 ::-webkit-scrollbar-button:horizontal:end {
   width: 16px;
   background-image: svg-load("./icon/button-right.svg");
-}
-/* .popup {
+} */
+
+/* start of automatic pop-up
+
+.popup {
   height: 207px;
   width: 480px;
 
